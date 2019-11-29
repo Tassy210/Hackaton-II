@@ -21,6 +21,8 @@
             <input type="password" placeholder="Informe seus dados">
 
         </form>
+
+        <h4>É um motorista? Clique <a href="motorista.php">aqui</a> para se cadastrar</h4>
     </center>
 </body>
 
