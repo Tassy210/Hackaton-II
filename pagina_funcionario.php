@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+echo $_SESSION['login'];
+
+?>
+
 <html>
 <meta charset="utf-8">
 
@@ -14,6 +22,7 @@
         <a href="motorista.php">Fazer cadastro de motorista</a><br>
         <a href="inserts/cadastroCarga.php">Fazer cadastro de Carga</a>
         <br>
+        <a href="selects/listarEnvios.php">Listar envios</a>
         <br>
         <br>
         <br>
