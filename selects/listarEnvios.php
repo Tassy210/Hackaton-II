@@ -6,7 +6,7 @@
         <?php include "../confere_f.php"; ?>
     </head>
     <body>
-        <table>
+        <table class="table table-bordered">
         <tbody>
         <?php
             $select = "SELECT * FROM carga";
