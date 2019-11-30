@@ -1,27 +1,18 @@
-<?php 
-
-session_start(); 
-include "conectar.php";
-
-$sql = "select * from funcionario where login ='".$_SESSION['login']."'";
-$query= mysqli_query($conexao, $sql);
-$user = mysqli_fetch_array($query);
-?>
-
 <html>
 <meta charset="utf-8">
 
 <head>
-    <title>Funcionário</title>
+    <title>Bakof</title>
 
 </head>
 
 <body>
     <center>
-        <h2>Fala, <?= $user['login']?>. Bem vindo ao nosso sistema. Bem massa, né? </h2>
+        <h2>Fala, fiote (Funcionário). Bem vindo ao nosso sistema. Show, né? Nos dá um suporte e nos ajuda à ganhar essa joça</h2>
         <br>
-        <b><label>CPF: <?= $user['cpf']?></label></b>
         <br>
+        <a href="motorista.php">Fazer cadastro de motorista</a><br>
+        <a href="inserts/cadastroCarga.php">Fazer cadastro de Carga</a>
         <br>
         <br>
         <br>
