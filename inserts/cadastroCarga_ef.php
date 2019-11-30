@@ -19,6 +19,7 @@ require '../conectar.php';
 	// Se os dados forem inseridos com sucesso
 	if ($result){
         echo "<script>alert('Você cadastrou o anúncio com sucesso')</script>";
+        header('location:../pagina_funcionario.php');
         
         //echo '<meta http-equiv="refresh" content="5;URL=../home.php"/>';
 

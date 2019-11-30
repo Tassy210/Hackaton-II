@@ -88,21 +88,6 @@
                     
                 }
             }
-
-            function submeter(){
-                    var destinatario = document.getElementById('destinatario').value;
-                    var nomeProduto  = document.getElementById('nomeProduto').value;
-                    var dt_saida     = document.getElementById('dt_saida').value;
-                    var numeroNota   = document.getElementById('numeroNota').value;
-                    var motorista    = document.getElementById('motorista').value;
-
-                    var url = "cadastroCarga_ef.php?localSaida="+response.originAddresses+"&destino="+response.destinationAddresses+"&d_tracada="+response.distance.text+"&destinatario="+destinatario+"&nomeProduto="+nomeProduto+"&dt_saida="+dt_saida+"&numeroNota="+numeroNota+"&motorista="+motorista
-
-                    window.location.href = url
-            }
-
-
-
         </script>
     </head>
     <body>
@@ -111,14 +96,14 @@
         $query = mysqli_query($conexao, $select) or die("Erro na conexão");
     ?>
 
-<div class="note">
+        <div class="note">
                     <p>Cadastro de Carga para envio</p>
                 </div>
-<div class="container ">
+        <div class="container ">
            
                
                 
-                    <form action="cadastroCarga_ef.php" method="POST">
+            <form action="cadastroCarga_ef.php" method="POST">
                         <span id="litResultado">&nbsp;</span>
                        
                            
@@ -136,7 +121,7 @@
                                 <input type="date" id="dt_saida" name="dt_saida" class=" mb-3 form-control"/>
                            
                             <?php
-                                echo '<p class="text-center">Data de Saída</p>
+                                echo '<p class="text-center">Motorista</p>
                                         <select name="motorista" class="form-control"/>';
 
                                 while($row = mysqli_fetch_array($query)){
@@ -144,15 +129,14 @@
                                 }
                                 echo '</select><p></p>';   
                             ?>
-                    </form>
                     
                
                     <p class="text-center"><label for="txtOrigem">Endere&ccedil;o de origem</label></p> 
-                                    <input type="text" id="txtOrigem" class="form-control input_user mb-3"/>
+                                <input type="text" id="txtOrigem" class="form-control input_user mb-3"/>
 
                               
-                                    <p class="text-center"><label for="txtDestino">Endere&ccedil;o de destino</label></p> 
-                                    <input type="text" class="form-control input_user mb-3" id="txtDestino" />
+                                <p class="text-center"><label for="txtDestino">Endere&ccedil;o de destino</label></p> 
+                                <input type="text" class="form-control input_user mb-3" id="txtDestino" />
 
                                    
                                  <center> <input type="button " class="btn btn-primary " value="Calcular dist&acirc;ncia" onclick="CalculaDistancia()" class="btnNew" />
@@ -162,10 +146,11 @@
                     <div><span id="litResultado">&nbsp;</span></div>
                         <div style="padding: 15px 0 0; clear: both">
                             <iframe width="100%" scrolling="no" height="50%" frameborder="0" id="map" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?saddr=são paulo&daddr=rio de janeiro&output=embed"></iframe>
+                        </div>
                       <center>
-                    <button type="button" class="btn btn-primary mt-3 ">Enviar</button>
+                        <button type="submit" class="btn btn-primary mt-3 ">Enviar</button>
                       </center>
+            </form>
             </div>
-        
     </body>
 </html>

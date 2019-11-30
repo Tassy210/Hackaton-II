@@ -12,9 +12,8 @@ if(empty($log) or empty($senha)){
 } else{ 
     $log = mysqli_real_escape_string($conexao, $log);
     $senha = mysqli_real_escape_string($conexao, $senha);
-    $querry = "SELECT * FROM administrador WHERE login = '{$log}' and senha = '{$senha}' ";
+    $querry = "SELECT * FROM administrador WHERE cpf = '{$log}' and senha = '{$senha}' ";
     $result = mysqli_query($conexao, $querry);
-    $dados = mysqli_fetch_array($result);
     $row = mysqli_num_rows($result);
     header('location:../teste.php'); 
 }
