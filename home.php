@@ -12,9 +12,9 @@
     <br>
     <h4>Nosso sistema tem como intuito auxiliar a condição de carga e descarga de produtos da empresa Bakof tec papapa pipipi popopo</h4>
     <br><br>
-        <h4>É um motorista? Clique <a href="motorista.php">aqui</a> para se cadastrar</h4>
+        <h4>É um motorista? Clique <a href="login_motorista.php">aqui</a> para fazer login</h4>
         <br><br>
-        <h4>É um funcionário? Clique <a href="funcionario.php">aqui</a> para se cadastrar</h4>
+        <h4>É um funcionário? Clique <a href="login_funcionario.php">aqui</a> para fazer login</h4>
         <br><br>
         <h4>É um administrador? Clique <a href="login_adm.php">aqui</a> para fazer login</h4>
         <br>

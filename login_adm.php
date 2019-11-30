@@ -16,7 +16,7 @@
         <form action="inserts/logando.php" method="POST">
             
             <label>Login: </label>
-            <input type="text" name="cpf" placeholder="Informe seus dados"> 
+            <input type="text" name="login" placeholder="Informe seus dados"> 
             <br><br>
             <label>Senha: </label>
             <input type="password" name="senha" placeholder="Informe seus dados">
