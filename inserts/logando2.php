@@ -14,8 +14,6 @@ if(empty($log) or empty($senha)){
     $senha = mysqli_real_escape_string($conexao, $senha);
     $querry = "SELECT * FROM funcionario WHERE login = '{$log}' and senha = '{$senha}' ";
     $result = mysqli_query($conexao, $querry);
-    $dados = mysqli_fetch_array($result);
-    $_SESSION['login'] = $dados["login"];
     $row = mysqli_num_rows($result);
     header('location:../pagina_funcionario.php'); 
 }
