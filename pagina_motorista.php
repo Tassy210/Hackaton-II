@@ -1,3 +1,14 @@
+<?php 
+
+session_start(); 
+include "conectar.php";
+
+$sql = "select * from motorista where id =".$_SESSION['id'];
+echo $sql;
+$query= mysqli_query($conexao, $sql);
+$user = mysqli_fetch_array($query);
+?>
+
 <html>
 <meta charset="utf-8">
 
@@ -11,7 +22,7 @@
     <h4>Bem vindo, (Nome do motorista)! </h4>
     <br>
 
-    <label>Placa do veículo: ABC-1234 (Placa fictícia DÃÃÃÃ)</label>
+    <label>Placa do veículo: <?= $user['placa'] ?> </label>
 
     <table>
     <h3>Histórico de entregas: </h3>

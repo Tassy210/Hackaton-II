@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-include_once "conectar.php";
+include_once "../conectar.php";
 
-$log = $_POST['login'];
+$log = $_POST['cpf'];
 $senha = $_POST['senha'];
 
 if(empty($log) or empty($senha)){

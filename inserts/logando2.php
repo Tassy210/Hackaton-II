@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include_once "conectar.php";
+include_once "../conectar.php";
 
 $log = $_POST['login'];
 $senha = $_POST['senha'];

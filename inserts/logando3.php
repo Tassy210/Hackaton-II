@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include_once "conectar.php";
+include_once "../conectar.php";
 
 $log = $_POST['cpf'];
 $senha = $_POST['senha'];
@@ -14,7 +14,10 @@ if(empty($log) or empty($senha)){
     $senha = mysqli_real_escape_string($conexao, $senha);
     $querry = "SELECT * FROM motorista WHERE cpf = '{$log}' and senha = '{$senha}' ";
     $result = mysqli_query($conexao, $querry);
+    $dados = mysqli_fetch_array($result);
+    $_SESSION['id'] = $dados["id"];
     $row = mysqli_num_rows($result);
+    //echo $dados["id"];
     header('location:../pagina_motorista.php'); 
 }
 
