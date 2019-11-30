@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Nov-2019 às 23:57
--- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.3.2
+-- Generation Time: 30-Nov-2019 às 02:53
+-- Versão do servidor: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `adminastrador`
+-- Estrutura da tabela `administrador`
 --
 
-CREATE TABLE `adminastrador` (
+CREATE TABLE `administrador` (
   `cpf` int(9) NOT NULL,
   `login` varchar(500) NOT NULL,
   `senha` varchar(500) NOT NULL
@@ -46,12 +46,28 @@ CREATE TABLE `carga` (
   `numeroNota` int(11) DEFAULT NULL,
   `destino` varchar(100) DEFAULT NULL,
   `localSaida` varchar(100) DEFAULT NULL,
-  `localChegada` varchar(100) DEFAULT NULL,
   `foto` varchar(50) DEFAULT NULL,
   `dt_cadastro` date DEFAULT NULL,
   `dt_saida` date DEFAULT NULL,
   `dt_chegada` date DEFAULT NULL,
-  `rota` varchar(200) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `d_percorrida` varchar(100) DEFAULT NULL,
+  `d_tracada` varchar(100) DEFAULT NULL,
+  `estatus` varchar(100) DEFAULT NULL,
+  `descricao` varchar(300) DEFAULT NULL,
+  `destinatario` varchar(100) DEFAULT NULL,
+  `nomeProduto` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `comprovante`
+--
+
+CREATE TABLE `comprovante` (
+  `idComprovante` int(11) NOT NULL,
+  `idCarga` int(11) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -90,16 +106,23 @@ CREATE TABLE `motorista` (
 --
 
 --
--- Indexes for table `adminastrador`
+-- Indexes for table `administrador`
 --
-ALTER TABLE `adminastrador`
+ALTER TABLE `administrador`
   ADD PRIMARY KEY (`cpf`);
 
 --
 -- Indexes for table `carga`
 --
 ALTER TABLE `carga`
-  ADD PRIMARY KEY (`idCarga`),
+  ADD PRIMARY KEY (`idCarga`);
+
+--
+-- Indexes for table `comprovante`
+--
+ALTER TABLE `comprovante`
+  ADD PRIMARY KEY (`idComprovante`),
+  ADD KEY `idCarga` (`idCarga`),
   ADD KEY `id` (`id`);
 
 --
@@ -120,16 +143,22 @@ ALTER TABLE `motorista`
 --
 
 --
--- AUTO_INCREMENT for table `adminastrador`
+-- AUTO_INCREMENT for table `administrador`
 --
-ALTER TABLE `adminastrador`
+ALTER TABLE `administrador`
   MODIFY `cpf` int(9) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `carga`
 --
 ALTER TABLE `carga`
-  MODIFY `idCarga` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `comprovante`
+--
+ALTER TABLE `comprovante`
+  MODIFY `idComprovante` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `funcionario`
@@ -148,10 +177,11 @@ ALTER TABLE `motorista`
 --
 
 --
--- Limitadores para a tabela `carga`
+-- Limitadores para a tabela `comprovante`
 --
-ALTER TABLE `carga`
-  ADD CONSTRAINT `carga_ibfk_1` FOREIGN KEY (`id`) REFERENCES `motorista` (`id`);
+ALTER TABLE `comprovante`
+  ADD CONSTRAINT `comprovante_ibfk_1` FOREIGN KEY (`idCarga`) REFERENCES `carga` (`idCarga`),
+  ADD CONSTRAINT `comprovante_ibfk_2` FOREIGN KEY (`id`) REFERENCES `motorista` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
