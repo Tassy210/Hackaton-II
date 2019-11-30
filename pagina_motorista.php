@@ -49,10 +49,11 @@ $id=$user['id'];
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+<center><h1>Entregas a serem feitas</h1></center>
 </head>
 <body>
     <center>
-    <h4>Bem vindo motorista <?= $user['nome'] ?></h4>
+    
     <br>
     <!-------------->
         <!-- DataTables Example -->
@@ -76,7 +77,7 @@ $id=$user['id'];
 
               
                   echo  '<br><div class="view overlay">
-                              <img src="fotos/'.$row['foto'].'" class="img-fluid" alt="Sample image for first version of blog listing">
+                              <img src="fotos/'.$row['foto'].'" class="img-fluid" width="250" height="200" alt="Sample image for first version of blog listing">
                               <a>
                                 <div class="mask rgba-white-slight"></div>
                               </a>
