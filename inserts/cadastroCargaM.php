@@ -3,10 +3,10 @@
     <head>
         <title>Cadastro de entrega da carga</title>
         <meta charset="UTF-8">
-        <?php include 'confere_m.php';?>
+        <?php include '../confere_m.php';?>
     </head>
     <body>
-    <form action="cadastroCargaM_ef.php" method="POST">
+    <form  enctype="multipart/form-data" action="cadastroCargaM_ef.php" method="POST">
         <label>Condição da carga</label><br>
             <input type="radio" name="condicao" value="0">Normal<br>
             <input type="radio" name="condicao"  value="1">Pouco Danificada<br>
@@ -18,14 +18,14 @@
         <label>Descrição adicional sobre a carga</label><br>
             <input type="text" name="descricao"><p></p>
 
-        <label>Distância percorrida</label><br>
-            <input type="text" name="d_percorrida"><p></p>
-
         <label>Confirmar entrega da carga</label>
-        <input type="checkbox" name="c_entrega"><p></p>
+            <input type="checkbox" name="c_entrega"><p></p>
+
+        <label>Confirmar confirmar problema com a carga</label>
+            <input type="checkbox" name="p_entrega"><p></p>
 
         <?php
-            $idCarga = $_POST['idCarga'];
+            $idCarga = $_GET['id'];
             echo '<input type="hidden" name="idCarga" value='.$idCarga.'>';
         ?>
         <input

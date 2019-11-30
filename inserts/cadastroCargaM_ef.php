@@ -1,12 +1,23 @@
 <?php
-require 'conectar.php';
+require '../conectar.php';
 
     $idCarga = $_POST['idCarga'];
     $condicao = $_POST['condicao'];
     $foto = $_FILES['foto'];
     $descricao = $_POST['descricao'];
-    $d_percorrida = $_POST['d_percorrida'];
-    $dt_chegada = date('Y-m-d H:i:s');
+	$dt_chegada = date('Y-m-d H:i:s');
+
+	if(isset($_POST['c_entrega'])){
+    	$estatus = "Entregue";
+	}else{
+		$estatus = null;
+	}
+
+	if(isset($_POST['p_entrega'])){
+		$estatus = "Danificada";
+	}else{
+		$estatus = null;
+	}
 
 	// Se a foto estiver sido selecionada
 	if (!empty($foto["name"])) {
@@ -53,19 +64,19 @@ require 'conectar.php';
         	$nome_imagem = md5(uniqid(time())) . "." . $ext[1];
  
         	// Caminho de onde ficará a imagem
-        	$caminho_imagem = "fotos/" . $nome_imagem;
+        	$caminho_imagem = "../fotos/" . $nome_imagem;
  
 			// Faz o upload da imagem para seu respectivo caminho
             move_uploaded_file($foto["tmp_name"], $caminho_imagem);
                 
-            $update = "UPDATE carga SET condicao='$condicao', foto='$nome_imagem', descricao='$descricao', d_percorrida='$d_percorrida', dt_chegada='$dt_chegada' WHERE idCarga=$idCarga";
+            $update = "UPDATE carga SET condicao='$condicao', foto='$nome_imagem', descricao='$descricao', dt_chegada='$dt_chegada', estatus='$estatus' WHERE idCarga=$idCarga";
             
             $result = mysqli_query($conexao, $update) or die ('Erro ao executar o comando SQL');
 
             // Se os dados forem inseridos com sucesso
 			if ($result){
 				echo "<script>alert('Você cadastrou a chegada do produto com sucesso')</script>";
-                echo '<meta http-equiv="refresh" content="5;URL=index.php" />';
+                echo '<meta http-equiv="refresh" content="5;URL=../home.php"/>';
 
 			}
 		}
