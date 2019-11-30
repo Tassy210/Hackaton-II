@@ -16,9 +16,9 @@
         {
             text-align: center;
             height: 80px;
-            background: -webkit-linear-gradient(left, #0072ff, #8811c5);
-            color: #fff;
-            font-weight: bold;
+            background: #001D96;
+            color: black;
+            font-size: 20px;
             line-height: 80px;
         }
         .form-content
@@ -110,34 +110,33 @@
         $select = "SELECT id, nome FROM motorista";
         $query = mysqli_query($conexao, $select) or die("Erro na conexão");
     ?>
-<div class="container register-form">
-            <div class="form">
-                <div class="note">
+
+<div class="note">
                     <p>Cadastro de Carga para envio</p>
                 </div>
-                <div class="form-content">
-                    <div class="row">
+<div class="container ">
+           
+               
+                
                     <form action="cadastroCarga_ef.php" method="POST">
-                        <div><span id="litResultado">&nbsp;</span></div>
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" name="numeroNota" placeholder="Número da nota do produto"/>
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="destinatario" name="destinatario" placeholder="Destinatário"/>
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="nomeProduto" name="nomeProduto" placeholder="Nome do Produto"/>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                            <label>Data de Saída</label>
-                                <input type="date" id="dt_saida" name="dt_saida" class="form-control"/>
-                            </div>
-                            <div class="input-group mb-3">
+                        <span id="litResultado">&nbsp;</span>
+                       
+                           
+                                <input type="text" class="form-control input_user mb-3" name="numeroNota" placeholder="Número da nota do produto"/>
+                            
+                            
+                                <input type="text" class="form-control input_user mb-3" id="destinatario" name="destinatario" placeholder="Destinatário"/>
+                            
+                            
+                                <input type="text" class="form-control input_user mb-3" id="nomeProduto" name="nomeProduto" placeholder="Nome do Produto"/>
+                            
+                       
+                                <p class="text-center">Data de Saída</p>
+                            
+                                <input type="date" id="dt_saida" name="dt_saida" class=" mb-3 form-control"/>
+                           
                             <?php
-                                echo '<label>Motorista</label><br>
+                                echo '<p class="text-center">Data de Saída</p>
                                         <select name="motorista" class="form-control"/>';
 
                                 while($row = mysqli_fetch_array($query)){
@@ -145,41 +144,28 @@
                                 }
                                 echo '</select><p></p>';   
                             ?>
-                            </div>
-                        </div>
                     </form>
-                    </div>
-                    <hr>
-                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <label for="txtOrigem"><strong>Endere&ccedil;o de origem</strong></label>
-                                    <input type="text" id="txtOrigem" class="field" style="width: 400px" />
+                    
+               
+                    <p class="text-center"><label for="txtOrigem">Endere&ccedil;o de origem</label></p> 
+                                    <input type="text" id="txtOrigem" class="form-control input_user mb-3"/>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="txtDestino"><strong>Endere&ccedil;o de destino</strong></label>
-                                    <input type="text" style="width: 400px" class="field" id="txtDestino" />
+                              
+                                    <p class="text-center"><label for="txtDestino">Endere&ccedil;o de destino</label></p> 
+                                    <input type="text" class="form-control input_user mb-3" id="txtDestino" />
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="button" value="Calcular dist&acirc;ncia" onclick="CalculaDistancia()" class="btnNew" />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                   
+                                 <center> <input type="button " class="btn btn-primary " value="Calcular dist&acirc;ncia" onclick="CalculaDistancia()" class="btnNew" />
+                                 </center>
+                         
+                    
                     <div><span id="litResultado">&nbsp;</span></div>
-                        <div style="padding: 10px 0 0; clear: both">
-                            <iframe width="750" scrolling="no" height="350" frameborder="0" id="map" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?saddr=são paulo&daddr=rio de janeiro&output=embed"></iframe>
-                        </div>
-                    <button type="button" class="btnSubmit">Submit</button>
-                </div>
+                        <div style="padding: 15px 0 0; clear: both">
+                            <iframe width="100%" scrolling="no" height="50%" frameborder="0" id="map" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?saddr=são paulo&daddr=rio de janeiro&output=embed"></iframe>
+                      <center>
+                    <button type="button" class="btn btn-primary mt-3 ">Enviar</button>
+                      </center>
             </div>
-        </div>
+        
     </body>
 </html>
