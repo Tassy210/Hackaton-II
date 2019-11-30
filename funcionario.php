@@ -12,6 +12,7 @@
 
     <head>
         <title>Bakof</title>
+		<?php include "../navbar.php"; ?>
     </head>
     <body>
 	<div class="container h-100">
@@ -19,11 +20,11 @@
 			<div class="user_card">
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
+						<img src="la.png" class="brand_logo" alt="Logo">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form action="inserts/cadastroMotora.php" method="POST">
+					<form action="inserts/cadastroFun.php" method="POST">
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -42,11 +43,6 @@
 							</div>
 							<input type="password" name="senha" class="form-control input_pass" value="" placeholder="senha">
 						</div>
-                        <div class="mt-4">
-                            <div class="d-flex justify-content-center links">
-                                Efetue o cadastro do funcionário
-                            </div>
-                        </div>
 							<div class="d-flex justify-content-center mt-3 login_container">
 				 	<button type="submit" name="button" class="btn login_btn">Cadastrar</button>
 				   </div>

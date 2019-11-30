@@ -28,7 +28,7 @@
 			<div class="user_card">
 				<div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
-						<img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" class="brand_logo" alt="Logo">
+						<img src="la.png" class="brand_logo" alt="Logo">
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
@@ -58,30 +58,5 @@
 </body>
 </html>
 </div>
-    <center>
-        <h2>Fala, fiote (Admin). Bem vindo ao nosso sistema. Show, né? Nos dá um suporte e nos ajuda à ganhar essa joça</h2>
-        <br>
-        <br>
-            <a href="motorista.php">Fazer cadastro de motorista</a><br>
-            <a href="funcionario.php">Fazer cadastro de funcionário</a>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <a href="inserts/logouting.php">Logout</a>
-        <br><br>
-        <h4>Desenvolvido por: Matheus Nicolay, Leon Tassinari e Bruno Dutra (A.K.A Equipe 5)</h4>
-    </center>
 </body>
-
-
-
 </html>

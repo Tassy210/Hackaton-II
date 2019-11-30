@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)) session_start();{
-		if(isset($_SESSION['id'])){
-			 $login_session = $_SESSION['id'];
+		if(isset($_SESSION['cpf'])){
+			 $login_session = $_SESSION['cpf'];
 		}
 			if(isset($login_session)){
 

@@ -1,43 +1,36 @@
 <?php	
     require "conectar.php";
 
-    $idCarga=$_GET['id'];
+    $idCarga=$_GET['idCarga'];
     $select = "SELECT * FROM carga WHERE idCarga='$idCarga'";
     $result = mysqli_query($conexao, $select);
-    $html = "";
+	$row = mysqli_fetch_assoc($result);
 
-    while($row = mysqli_fetch_array($result)){
-        $html .=  $row['nomeProduto']; echo '<br>';
-        $html .=  $row['localSaida']; echo '<br>';
-        $html .=  $row['destino']; echo '<br>';
-        $html .=  $row['numeroNota']; echo '<br>';
-        $html .=  $row['destinatario']; echo '<br>';
-        $html .=   $row['dt_cadastro']; echo '<br>';
-        $html .=   $row['dt_saida']; echo '<br>';
-        $html .=  $row['dt_chegada']; echo '<br>';
-        $html .=  $row['d_tracada']; echo '<br>';
-    }
+	
 
-	//referenciar o DomPDF com namespace
-	use Dompdf\Dompdf;
+	include ('mpdf/mpdf.php');
 
-	// include autoloader
-	require_once("dompdf/autoload.inc.php");
+	$pagina = 
+		"<html>
+			<body>
+				<h1>Comprovante de entrega</h1>
+				<ul>
+					<li>".$row['nomeProduto']."</li>
+					<li>".$row['destinatario']."</li>
+					<li>".$row['dt_chegada']."</li>
+				</ul>
+			</body>
+		</html>
+		";
 
-	//Criando a Instancia
-	$dompdf = new DOMPDF();
+$arquivo = "Cadastro01.pdf";
 
-	// Carrega seu HTML
-	$dompdf->load_html($html);
+$mpdf = new mPDF('c', 'A4', '', '', 0, 0, 0, 0, 0, 0);
+$mpdf->WriteHTML($pagina);
 
-	//Renderizar o html
-	$dompdf->render();
+$mpdf->Output($arquivo, 'I');
 
-	//Exibibir a página
-	$dompdf->stream(
-		"comprovante.pdf", 
-		array(
-			"Attachment" => false //Para realizar o download somente alterar para true
-		)
-	);
+// I - Abre no navegador
+// F - Salva o arquivo no servido
+// D - Salva o arquivo no computador do usuário
 ?>

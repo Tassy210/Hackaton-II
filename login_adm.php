@@ -28,7 +28,7 @@
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="login" class="form-control input_user" value="" placeholder="login">
+							<input type="text" name="cpf" class="form-control input_user" value="" placeholder="cpf">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">

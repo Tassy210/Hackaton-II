@@ -3,9 +3,11 @@
 session_start(); 
 include "conectar.php";
 
-$sql = "select * from motorista where id =".$_SESSION['id'];
+$sql = "select * from motorista where cpf =".$_SESSION['cpf'];
 $query= mysqli_query($conexao, $sql);
 $user = mysqli_fetch_array($query);
+
+$id=$user['id'];
 ?>
 
 <html>
@@ -62,7 +64,7 @@ $user = mysqli_fetch_array($query);
         require "conectar.php";
         include "confere_m.php";
 
-        $select = "SELECT * FROM carga WHERE id='$login_session'";
+        $select = "SELECT * FROM carga WHERE id='$id'";
         $result = mysqli_query($conexao, $select) or die ("Erro ao selecionar");
 
         while($row = mysqli_fetch_array($result)){
